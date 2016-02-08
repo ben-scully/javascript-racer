@@ -1,3 +1,7 @@
+.racer_table {
+  height: 150px;
+}
+
 .racer_table td {
   background-color: white;
   height: 20px;

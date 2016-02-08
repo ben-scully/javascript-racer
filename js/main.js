@@ -1,6 +1,6 @@
 var numPlayers = 2;           // Number of players in the game
 var keys = [81, 82, 85, 80];  // keys q,r,u,p
-var raceLength = 8;
+var lengthOfTrack = 10;
 
 function newGame() {
   // Start listening for the players key to move
@@ -11,6 +11,7 @@ function newGame() {
 
   // Get number of players from dropdown
   numPlayers = document.querySelector("#numPlayers").value;
+  lengthOfTrack = document.querySelector("#lengthOfTrack").value;
 
   // Create a row with a marker square for each player
   var table = document.querySelector(".racer_table");
@@ -25,7 +26,7 @@ function newGame() {
 function checkForWinner() {
   for (var i = numPlayers; i > 0; i--) {
     var numCells = document.getElementById("player" + i + "_strip").cells.length;
-    if (numCells > raceLength) {
+    if (numCells > lengthOfTrack) {
       alert("Player" + i + " wins!!!!");
       removeListeners();
     }
