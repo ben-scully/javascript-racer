@@ -17,20 +17,19 @@
 
 <body>
 
-  <table class="racer_table">
-  <tr id="player1_strip">
-    <td class="active"></td>
-  </tr>
-  <tr id="player2_strip">
-    <td class="active"></td>
-  </tr>
-  <tr id="player3_strip">
-    <td class="active"></td>
-  </tr>
-</table>
+  <input type="button" onclick="newGame()" value="New Game">
 
-<div id="demo"></div>
+  <label># Players</label>
+  <select id="numPlayers">
+    <option value="2">2 Player</option>
+    <option value="3" selected>3 Player</option>
+    <option value="4">4 Player</option>
+  </select>
+
+  <table class="racer_table"></table>
 
 </body>
+
 <script type="text/javascript" src="js/main.js"></script>
+
 </html>
