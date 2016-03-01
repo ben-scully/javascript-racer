@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Javascript Racer</title>
+  <title>UFC Fighter</title>
   <meta charset="UTF-8">
 
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
@@ -12,41 +12,48 @@
 
 <body>
 
-  <input type="button" onclick="newGame()" value="New Game">
+  <div id="wrapper">
 
-  <label># Players</label>
-  <select id="numPlayers">
-    <option value="2">2 Player</option>
-    <option value="3" selected>3 Player</option>
-    <option value="4">4 Player</option>
-  </select>
+    <div id="banner">
+      <div id="playerP1"></div>
 
-  <label>Length Of Track</label>
-  <select id="lengthOfTrack">
-    <option value="10" selected>10 Squares</option>
-    <option value="20">20 Squares</option>
-    <option value="30">30 Squares</option>
-  </select>
+      <div id="playerP2"></div>
+    </div>
 
-  <table class="racer_table"></table>
+    <div id="items">
+      <div id="itemsP1">
+        <div id="beltsP1"></div>
+        <div id="suitsP1"></div>
+      </div>
 
-  <div>
-    <h4>How To Start Playing</h4>
-    <p>
-      Click "New Game" to start playing.<br>
-      If you want to change the "# Players" & "Length Of Track" do it before clicking "New Game".
-    </p>
-    <h4>The Controls</h4>
-    <p>
-      Player1 = 'Q'<br>
-      Player2 = 'R'<br>
-      Player3 = 'U'<br>
-      Player4 = 'P'<br>
-    </p>
+      <div id="itemsP2">
+        <div id="beltsP2"></div>
+        <div id="suitsP2"></div>
+      </div>
+
+      <div id="game"></div>
+    </div>
+
+  </div>
+
+  <div id="chooseFighters">
+    <button type="button" id="startFight">Start Fight!</button>
+
+    <div id="fighterSelectP1"></div>
+    <select id="fighterDropdownP1"></select>
+
+    <div id="fighterSelectP2"></div>
+    <select id="fighterDropdownP2"></select>
+
+    <div id="fighterControlsP1"></div>
+    <div id="fighterControlsP2"></div>
+
+    <div id="howToPlay"></div>
   </div>
 
 </body>
 
 <script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/helper.js"></script>
 
 </html>

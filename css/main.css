@@ -1,13 +1,32 @@
-.racer_table {
-  height: 150px;
+#chooseFighters {
+  margin-top: 20px;
+  padding: 20px;
+  width: 300px;
+  display: inline-block;
+  text-align: center;
+  background: gray;
 }
 
-.racer_table td {
-  background-color: white;
-  height: 20px;
-  width: 20px;
+#banner {
+  background: yellow;
 }
 
-.racer_table td.active {
-  background-color: black;
+#items {
+  background: green;
+}
+
+#playerP1, #playerP2 {
+  display: inline-block;
+}
+
+#playerP2 {
+  float: right;
+}
+
+#itemsP1, #itemsP2 {
+  display: inline-block;
+}
+
+#itemsP2 {
+  float: right;
 }
