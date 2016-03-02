@@ -4,7 +4,7 @@ var players = [{
   "controls" : "<p>a/w/s/d & 'r'<p>",
   "selection" : "asdf",
   "belts" : "1",
-  "suits" : "2"
+  "suits" : "0"
 },{
   "code" : "P2",
   "name" : "Player 2",
@@ -37,8 +37,8 @@ var HTMLcontrolsTitle = "<h4>%data% Controls</h4>";
 var HTMLcontrolsText = "<p>%data%<p>";
 var HTMLhowToPlayTitle = "<h4>How To Play</h4>";
 var HTMLhowToPlayText = "<p>Run around collecting 'Belts' & 'Suits' to improve 'Strength' & 'Speed' and then fight in the Octagon. 'Belts' = increases Strength. 'Suits' = increases Speed.<p>";
-var HTMLbelt = "images/belt.png";
-var HTMLsuit = "images/suit.png";
+var HTMLbelt = '<img id="belt" width="20" height="20" src="images/belt.png" alt="Belt">';
+var HTMLsuit = '<img id="suit" width="20" height="20" src="images/suit.png" alt="Suit">';
 
 document.getElementById("startFight").addEventListener('click', function() {
   startFight();
@@ -122,7 +122,7 @@ function initPlayers() {
 function updateItems(index) {
   var belts = "Belts: ";
   for (i = 0; i < players[index].belts; i++) {
-    belts += HTMLbelt + " - ";
+    belts += HTMLbelt;
   }
 
   var selector = "belts" + players[index].code;
@@ -130,13 +130,14 @@ function updateItems(index) {
 
   var suits = "Suits: ";
   for (i = 0; i < players[index].suits; i++) {
-    suits += HTMLsuit + " - ";
+    suits += HTMLsuit;
   }
 
   var selector = "suits" + players[index].code;
   document.getElementById(selector).innerHTML = suits;
 }
 
-
-updateItems(0);
-updateItems(1);
+function updateAllItems() {
+  updateItems(0);
+  updateItems(1);
+}

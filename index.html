@@ -4,19 +4,16 @@
 <head>
   <title>UFC Fighter</title>
   <meta charset="UTF-8">
-
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
-  <link rel="stylesheet" type="text/css" href="css/main.css">
-
+  <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
 
-  <div id="wrapper">
+  <div id="mainWrapper">
 
     <div id="banner">
       <div id="playerP1"></div>
-
       <div id="playerP2"></div>
     </div>
 
@@ -30,13 +27,15 @@
         <div id="beltsP2"></div>
         <div id="suitsP2"></div>
       </div>
-
-      <div id="game"></div>
     </div>
 
-  </div>
+    <canvas id="canvas"></canvas>
 
-  <div id="chooseFighters">
+  </div>   <!-- end of mainWrapper  -->
+
+
+  <div id="startFightWrapper">
+
     <button type="button" id="startFight">Start Fight!</button>
 
     <div id="fighterSelectP1"></div>
@@ -49,11 +48,18 @@
     <div id="fighterControlsP2"></div>
 
     <div id="howToPlay"></div>
-  </div>
 
+  </div>   <!-- end of startFightWrapper  -->
+
+  <img id="conor" width="10" height="10" src="images/conor.png" alt="Conor">
+  <img id="jose" width="10" height="10" src="images/jose.png" alt="Jose">
+  <img id="rda" width="10" height="10" src="images/rda.png" alt="RDA">
+  <img id="nate" width="10" height="10" src="images/nate.png" alt="Nate">
+  <img id="belt" width="10" height="10" src="images/belt.png" alt="Belt">
+  <img id="suit" width="10" height="10" src="images/suit.png" alt="Suit">
 </body>
 
-<script type="text/javascript" src="js/main.js"></script>
-<script type="text/javascript" src="js/helper.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="js/canvas.js"></script>
 
 </html>
