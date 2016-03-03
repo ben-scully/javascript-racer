@@ -7,7 +7,6 @@ var ready = false;
 	var levelCols = 16;							// level width, in tiles
 	var levelRows = 16;							// level height, in tiles
 	var tileSize = 32;							// tile size, in pixels
-	var tilePlayer = tileSize - 4;
 
 	var player1Col = 1;           // player1 starting column
 	var player1Row = 3;           // player1 starting row
@@ -132,21 +131,13 @@ var ready = false;
 		// clear the canvas
 		context.clearRect(0, 0, canvas.width, canvas.height);
 		// walls = red boxes
-		for(i=0;i<levelRows;i++){
-			for(j=0;j<levelCols;j++){
-				// if(level[i][j] == 1){
-				// 	context.fillStyle = "#ff0000";
-				// 	context.fillRect(j*tileSize,i*tileSize,tileSize,tileSize);
-				// }
-				// if(level[i][j] == 2){
-				// 	context.fillStyle = "#343434";
-				// 	context.fillRect(j*tileSize,i*tileSize,tileSize,tileSize);
-				// }
-				if(level[i][j] == 3){
+		for (i=0;i<levelRows;i++) {
+			for (j=0;j<levelCols;j++) {
+				if (level[i][j] == 3) {
 					var belt = document.getElementById("belt");
 					context.drawImage(belt, j * tileSize, i * tileSize, tileSize, tileSize);
 				}
-				if(level[i][j] == 4){
+				if (level[i][j] == 4) {
 					var suit = document.getElementById("suit");
 					context.drawImage(suit, j * tileSize, i * tileSize, tileSize, tileSize);
 				}
