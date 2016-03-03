@@ -10,55 +10,63 @@
 
 <body>
 
-  <div id="mainWrapper">
+  <div id="startFightContainer">
+    <div id="startFightBox">
 
-    <div id="banner">
-      <div id="playerP1"></div>
-      <div id="playerP2"></div>
-    </div>
+      <button type="button" id="startFight">Start Fight!</button>
 
-    <div id="items">
-      <div id="itemsP1">
-        <div id="beltsP1"></div>
-        <div id="suitsP1"></div>
+      <div id="chooseP1">Player 1 Choose Your Fighter</div>
+      <select id="fightersP1"></select>
+
+      <div id="chooseP2">Player 2 Choose Your Fighter</div>
+      <select id="fightersP2"></select>
+
+      <div id="controlsContainer">
+        <div id="controlsP1">Player 1 Controls:</div>
+        <div id="controlsP2">Player 2 Controls:</div>
       </div>
 
-      <div id="itemsP2">
-        <div id="beltsP2"></div>
-        <div id="suitsP2"></div>
+      <div id="howToPlay">How To Play</div>
+
+    </div>  <!-- end of startFightBox  -->
+  </div>  <!-- end of startFightContainer  -->
+
+  <header>
+    <img id="ufc" src="images/ufc.png" alt="UFC Logo">
+  </header>
+
+  <div id="bannerContainer">
+    <div id="bannerBox">
+      <div id="bannerBoxP1" class="box">
+        <div id="playerP1" class="littleBox"></div>
+        <div id="beltsP1" class="littleBox"></div>
+        <div id="suitsP1" class="littleBox"></div>
       </div>
-    </div>
 
-    <canvas id="canvas"></canvas>
+      <div id="bannerBoxP2" class="box">
+        <div id="playerP2" class="littleBox"></div>
+        <div id="beltsP2" class="littleBox"></div>
+        <div id="suitsP2" class="littleBox"></div>
+      </div>
+    </div> <!-- end of bannerBox  -->
+  </div> <!-- end of bannerContainer  -->
 
-  </div>   <!-- end of mainWrapper  -->
+  <div id="canvasContainer">
+      <canvas id="canvas"></canvas>
+  </div>  <!-- end of canvasContainer  -->
 
-
-  <div id="startFightWrapper">
-
-    <button type="button" id="startFight">Start Fight!</button>
-
-    <div id="fighterSelectP1"></div>
-    <select id="fighterDropdownP1"></select>
-
-    <div id="fighterSelectP2"></div>
-    <select id="fighterDropdownP2"></select>
-
-    <div id="fighterControlsP1"></div>
-    <div id="fighterControlsP2"></div>
-
-    <div id="howToPlay"></div>
-
-  </div>   <!-- end of startFightWrapper  -->
 
   <img id="conor" width="10" height="10" src="images/conor.png" alt="Conor">
   <img id="jose" width="10" height="10" src="images/jose.png" alt="Jose">
-  <img id="rda" width="10" height="10" src="images/rda.png" alt="RDA">
+  <img id="rafael" width="10" height="10" src="images/rafael.png" alt="RDA">
   <img id="nate" width="10" height="10" src="images/nate.png" alt="Nate">
   <img id="belt" width="10" height="10" src="images/belt.png" alt="Belt">
   <img id="suit" width="10" height="10" src="images/suit.png" alt="Suit">
+
+
 </body>
 
+<script type="text/javascript" src="js/helper.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
 <script type="text/javascript" src="js/canvas.js"></script>
 

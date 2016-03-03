@@ -1,126 +1,74 @@
-var players = [{
-  "code" : "P1",
-  "name" : "Player 1",
-  "controls" : "<p>a/w/s/d & 'r'<p>",
-  "selection" : "asdf",
-  "belts" : "1",
-  "suits" : "0"
-},{
-  "code" : "P2",
-  "name" : "Player 2",
-  "controls" : "<p>left/right/up/down & 'Enter'<p>",
-  "selection" : "qwer",
-  "belts" : "4",
-  "suits" : "3"
-}]
-
-var fighters = [{
-  "code" : "cm",
-  "name" : "Conor McGregor",
-  "image" : "images/ufc_conor_mcgregor.png"
-},{
-  "code" : "ja",
-  "name" : "Jose Aldo",
-  "image" : "images/ufc_jose_aldo.png"
-},{
-  "code" : "rda",
-  "name" : "Rafael dos Anjos",
-  "image" : "images/ufc_rda.png"
-},{
-  "code" : "nd",
-  "name" : "Nate Diaz",
-  "image" : "images/ufc_nate_diaz.png"
-}]
-
-var HTMLchooseTitle = "<h4>%data% choose your Fighter...</h4>";
-var HTMLcontrolsTitle = "<h4>%data% Controls</h4>";
-var HTMLcontrolsText = "<p>%data%<p>";
-var HTMLhowToPlayTitle = "<h4>How To Play</h4>";
-var HTMLhowToPlayText = "<p>Run around collecting 'Belts' & 'Suits' to improve 'Strength' & 'Speed' and then fight in the Octagon. 'Belts' = increases Strength. 'Suits' = increases Speed.<p>";
-var HTMLbelt = '<img id="belt" width="20" height="20" src="images/belt.png" alt="Belt">';
-var HTMLsuit = '<img id="suit" width="20" height="20" src="images/suit.png" alt="Suit">';
+// Run these functions when page first loads
+setupStartFight();
+setupBanner();
 
 document.getElementById("startFight").addEventListener('click', function() {
   startFight();
 });
 
+
 // Choosing a fighter & starting a fight
 function setupStartFight() {
-  // re display start fight incase it has been made display:none from a previous game
-  // display : none;
+  document.getElementById('startFightBox').style.display= "inline-block";
+  ready = false;
 
   for (p in players) {
-
-    // Choose your fighter...
-    var title = HTMLchooseTitle.replace('%data%', players[p].name);
-    var selector = "fighterSelect" + players[p].code;
-    document.getElementById(selector).innerHTML = title;
-
-    // Dropdown of fighters to choose from
-    var list = fighters.map(function(val){
+    // Build list of different Fighters names
+    var list = fighters.map(function(val) {
       return val.name;
     });
 
-    var selector = "fighterDropdown" + players[p].code;
+    // Put all the different Fighters in to the Dropdown lists
+    var selector = "fighters" + players[p].code;
     var dropdown = document.getElementById(selector);
-
     for (item in list) {
       var option = document.createElement("option");
       option.text = list[item];
       dropdown.add(option);
     }
 
-    // Controls for each respective player
+    // Insert list of Controls for each Player
     var title = HTMLcontrolsTitle.replace('%data%', players[p].name);
-    var text = HTMLcontrolsText.replace('%data%', players[p].controls);
-    var selector = "fighterControls" + players[p].code;
+
+    var content = "";
+    for (c in players[p].controls) {
+      var dir = players[p].controls[c][0];
+      var char = players[p].controls[c][1];
+      content += "Press: " + char + " to " + dir + "<br>";
+    }
+
+    var text = HTMLcontrolsText.replace('%data%', content);
+    var selector = "controls" + players[p].code;
     document.getElementById(selector).innerHTML = title + text;
   }
 
-  // How to play
+  // Insert 'How to Play' information
   document.getElementById("howToPlay").innerHTML = HTMLhowToPlayTitle + HTMLhowToPlayText;
 }
 
-setupStartFight();
 
 
-// start fight
-/**
-*   take dropdown fighter and assign to each players
-*         ** add name to each player banner
-*         ** add pic to each player banner
-*
-*   start timer
-*   put fighters in to the stadium
-*   remove (display:none) the choose fighters panel from the screen
-**/
 
-function startFight() {
-  // update players fighter based on their selection
-  for (p in players) {
-    var selector = "fighterDropdown" + players[p].code;
-    var dropdown = document.getElementById(selector);
-    var selection = dropdown.options[dropdown.selectedIndex].text;
-    players[p].selection = selection;
-  }
-
-  // make the start fight display disappear
-
-  // call methods to get the actual game going
-  initPlayers();
+function setupBanner() {
+  updatePlayerNames();
+  updateAllItems();
 }
 
-
-function initPlayers() {
+function updatePlayerNames() {
   for (p in players) {
-    var content = players[p].name + ": " + players[p].selection;
+    var content = "<span>" + players[p].name + ": " + players[p].selection + "</span>";
     var selector = "player" + players[p].code;
     document.getElementById(selector).innerHTML = content;
   }
 }
 
+function updateAllItems() {
+  updateItems(0);
+  updateItems(1);
+}
+
 function updateItems(index) {
-  var belts = "Belts: ";
+  var belts = "<span>Belts:</span>";
   for (i = 0; i < players[index].belts; i++) {
     belts += HTMLbelt;
   }
@@ -128,7 +76,7 @@ function updateItems(index) {
   var selector = "belts" + players[index].code;
   document.getElementById(selector).innerHTML = belts;
 
-  var suits = "Suits: ";
+  var suits = "<span>Suits:</span>";
   for (i = 0; i < players[index].suits; i++) {
     suits += HTMLsuit;
   }
@@ -137,7 +85,25 @@ function updateItems(index) {
   document.getElementById(selector).innerHTML = suits;
 }
 
-function updateAllItems() {
-  updateItems(0);
-  updateItems(1);
+
+/*  Set each Player with their choosen Fighter
+*   Start the gametimer
+*   Put the Fighters on the canvas
+*   Allow Players to start moving their Fighters
+*/
+function startFight() {
+  // make the start fight display disappear
+  document.getElementById('startFightBox').style.display='none';
+
+  // update players fighter based on their selection
+  for (p in players) {
+    var selector = "fighters" + players[p].code;
+    var dropdown = document.getElementById(selector);
+    var selection = dropdown.options[dropdown.selectedIndex].text;
+    players[p].selection = selection;
+  }
+
+  // Update top banner with Fighter name, Belts, Suits
+  setupBanner();
+  ready = true;
 }
