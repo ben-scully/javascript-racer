@@ -2,51 +2,72 @@
 <html>
 
 <head>
-  <title>Javascript Racer</title>
+  <title>UFC Fighter</title>
   <meta charset="UTF-8">
-
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
-  <link rel="stylesheet" type="text/css" href="css/main.css">
-
+  <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
 
-  <input type="button" onclick="newGame()" value="New Game">
+  <div id="startFightContainer">
+    <div id="startFightBox">
 
-  <label># Players</label>
-  <select id="numPlayers">
-    <option value="2">2 Player</option>
-    <option value="3" selected>3 Player</option>
-    <option value="4">4 Player</option>
-  </select>
+      <button type="button" id="startFight">Start Fight!</button>
 
-  <label>Length Of Track</label>
-  <select id="lengthOfTrack">
-    <option value="10" selected>10 Squares</option>
-    <option value="20">20 Squares</option>
-    <option value="30">30 Squares</option>
-  </select>
+      <div id="chooseP1">Player 1 Choose Your Fighter</div>
+      <select id="fightersP1"></select>
 
-  <table class="racer_table"></table>
+      <div id="chooseP2">Player 2 Choose Your Fighter</div>
+      <select id="fightersP2"></select>
 
-  <div>
-    <h4>How To Start Playing</h4>
-    <p>
-      Click "New Game" to start playing.<br>
-      If you want to change the "# Players" & "Length Of Track" do it before clicking "New Game".
-    </p>
-    <h4>The Controls</h4>
-    <p>
-      Player1 = 'Q'<br>
-      Player2 = 'R'<br>
-      Player3 = 'U'<br>
-      Player4 = 'P'<br>
-    </p>
-  </div>
+      <div id="controlsContainer">
+        <div id="controlsP1">Player 1 Controls:</div>
+        <div id="controlsP2">Player 2 Controls:</div>
+      </div>
+
+      <div id="howToPlay">How To Play</div>
+
+    </div>  <!-- end of startFightBox  -->
+  </div>  <!-- end of startFightContainer  -->
+
+  <header>
+    <img id="ufc" src="images/ufc.png" alt="UFC Logo">
+  </header>
+
+  <div id="bannerContainer">
+    <div id="bannerBox">
+      <div id="bannerBoxP1" class="box">
+        <div id="playerP1" class="littleBox"></div>
+        <div id="beltsP1" class="littleBox"></div>
+        <div id="suitsP1" class="littleBox"></div>
+      </div>
+
+      <div id="bannerBoxP2" class="box">
+        <div id="playerP2" class="littleBox"></div>
+        <div id="beltsP2" class="littleBox"></div>
+        <div id="suitsP2" class="littleBox"></div>
+      </div>
+    </div> <!-- end of bannerBox  -->
+  </div> <!-- end of bannerContainer  -->
+
+  <div id="canvasContainer">
+      <canvas id="canvas"></canvas>
+  </div>  <!-- end of canvasContainer  -->
+
+
+  <img id="conor" width="10" height="10" src="images/conor.png" alt="Conor">
+  <img id="jose" width="10" height="10" src="images/jose.png" alt="Jose">
+  <img id="rafael" width="10" height="10" src="images/rafael.png" alt="RDA">
+  <img id="nate" width="10" height="10" src="images/nate.png" alt="Nate">
+  <img id="belt" width="10" height="10" src="images/belt.png" alt="Belt">
+  <img id="suit" width="10" height="10" src="images/suit.png" alt="Suit">
+
 
 </body>
 
-<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/helper.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="js/canvas.js"></script>
 
 </html>
